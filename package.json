@@ -1,0 +1,28 @@
+{
+  "name": "gardenjs-render-plugin-webcomponents",
+  "version": "0.0.0",
+  "description": "Plugin for rendering Web components in gardenjs.",
+  "license": "(MIT AND BSD-3-Clause)",
+  "author": "Dolan Murvihill (https://github.com/dmurvihill)",
+  "type": "module",
+  "exports": {
+    ".": "./"
+  },
+  "files": [
+    "dist/",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "test": "(cd example && garden)",
+    "build": "tsc",
+    "release": "release-it"
+  },
+  "devDependencies": {
+    "@release-it/keep-a-changelog": "^7.0.1",
+    "gardenjs": "^1.7.2",
+    "git-conventional-commits": "^2.9.0",
+    "release-it": "^19.2.4",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}

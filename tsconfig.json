@@ -1,0 +1,12 @@
+{
+  "files": [ "./index.ts" ],
+  "compilerOptions": {
+    "target": "es6",
+    "module": "es6",
+    "lib": ["es2022", "es7", "es6", "dom", "dom.iterable"],
+    "declaration": true,
+    "strict": true,
+    "outDir": "dist/",
+    "types": []
+  }
+}
