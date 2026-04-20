@@ -7,9 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-04-20
+
 ### Added
 
 - Initial draft of Web component renderer
 - README.md
 - CHANGELOG.md
 - License
+[Unreleased]: https://github.com/direct-democracy-solutions/gardenjs-render-plugin-webcomponents/compare/0.1.0...HEAD
+[0.1.0]: https://github.com/direct-democracy-solutions/gardenjs-render-plugin-webcomponents/releases/tag/0.1.0
