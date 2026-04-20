@@ -1,6 +1,6 @@
 {
   "name": "gardenjs-render-plugin-webcomponents",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Plugin for rendering Web components in gardenjs.",
   "license": "(MIT AND BSD-3-Clause)",
   "author": "Dolan Murvihill (https://github.com/dmurvihill)",
