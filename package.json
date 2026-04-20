@@ -15,7 +15,7 @@
   "scripts": {
     "test": "(cd example && garden)",
     "build": "tsc",
-    "release": "release-it"
+    "release": "release-it --increment $(npx git-conventional-commits version)"
   },
   "devDependencies": {
     "@release-it/keep-a-changelog": "^7.0.1",
