@@ -25,12 +25,6 @@ export function create() {
     });
   }
 
-  function setUpComponent(component: CustomElementConstructor, decorators: CustomElementConstructor[]) {
-    const elementName = ensureRegistered(customElements, component);
-    const node = document.createElement(elementName);
-    return decorate(node, decorators);
-  }
-
   function updateComponent({
                              component,
                              selectedExample,
@@ -38,15 +32,17 @@ export function create() {
                              afterRenderHook,
                            }: UpdateComponentParams) {
     const shadowRoot = ensureShadowRoot();
-    const node = setUpComponent(component, decorators)
+    const elementName = ensureRegistered(customElements, component);
+    const componentInstance = document.createElement(elementName);
+    const wrapped = decorate(componentInstance, decorators);
     for (const [k, v] of Object.entries(selectedExample.input)) {
       if (v === null) {
-        node.removeAttribute(k);
+        componentInstance.removeAttribute(k);
       } else {
-        node.setAttribute(k, v);
+        componentInstance.setAttribute(k, v);
       }
     }
-    shadowRoot.appendChild(node);
+    shadowRoot.appendChild(wrapped);
     afterRenderHook();
   }
 
