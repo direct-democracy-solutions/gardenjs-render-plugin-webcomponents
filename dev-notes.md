@@ -1,32 +1,6 @@
 Design/implementation notes on the plugin and GardenJS in genera
 l
 
-# Decorators
-I am having trouble getting these to work. It's unclear how to mount
-them in a DAS file. Passing file names didn't do the job for me. I
-didn't get any errors -- the decorated component just doesn't show up in
-the left nav.
-
-For a basic example, see `src/HotkeyPrompt/HotkeyPromptWithDecorator.das.ts`.
-I've tried the following decorator values:
-- `'src/slot-decorator.ts'`
-- `'slot-decorator.ts'`
-- `'../slot-decorator.ts'`
-
-I also tried including my decorator class directly, but got
-`ReferenceError: document is not defined`. It seems the DAS is being
-executed in a TSX environment without access to the DOM, rather than
-Vite. This is a bit awkward.
-
-Integration would be easier if upstream could:
-- Add an example of using decorators to the GardenJS repo,
-- Add an example DAS file `decorators` entry to the docs, and
-- Emit an error message somewhere if the decorator could not be loaded
-
-Also, it would be nice to be able to switch between decorators at the
-Example level, to see the same component in different contexts (or
-inject different slot content using the workaround below).
-
 # Slots
 The official workaround for slots is to write a wrapper component that
 constructs the component under tests and then injects the slot content.
@@ -59,10 +33,17 @@ I haven't yet thought about how to support this.
 # Form-Associated Custom Elements
 Haven't investigated whether these will need special support.
 
+# Importing and passing classes rather than file names
+It would be nice to import classes in DAS files and use them directly,
+rather than having to go through TSX. I tried it, but got
+`ReferenceError: document is not defined`. It seems the DAS is
+executed in a TSX environment without access to the DOM. This is a bit
+awkward.
+
 # Injecting static asset URLs from DAS files
 I would very much like to do this, but it breaks I think due to the
-Vitest versus TSX discrepancy discussed in [Decorators], above. As a
-workaround, place assets in `/public` and hardcode the url.
+Vitest versus TSX discrepancy discussed above. As a workaround, place
+assets in `/public` and hardcode the url.
 
 # Testing
 Vitest seems like a natural choice.

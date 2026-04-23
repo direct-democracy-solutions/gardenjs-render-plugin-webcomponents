@@ -12,7 +12,7 @@ For detailed information on each item, check out [dev-notes.md].
 :white_check_mark: Edit element attributes with GardenJS input controls  
 :white_check_mark: First-class support for TypeScript  
 :white_check_mark: ESM-first  
-:x: Easily embed components with GardenJS [decorators](https://gardenjs.org/docs/get-started/decorators)  
+:white_check_mark: Easily embed components with GardenJS [decorators](https://gardenjs.org/docs/get-started/decorators)  
 :x: Mount customized built-in elements in GardenJS  
 :x: Easily edit element properties with GardenJS input controls  
 :x: Listen to events from custom elements ([On the GardenJS roadmap](https://github.com/gardenjs/gardenjs/issues/32#issuecomment-4256064025); workaround available)  
