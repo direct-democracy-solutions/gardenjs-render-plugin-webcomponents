@@ -23,7 +23,7 @@ template.innerHTML = `
 export default class HotkeyPrompt extends HTMLElement {
   static readonly observedAttributes = ['img-src', 'code'];
   private readonly icon: HTMLImageElement;
-  private listener: EventListener | null = null;
+  private listener: ((event: KeyboardEvent) => void) | null = null;
 
   constructor() {
     super();
@@ -38,7 +38,11 @@ export default class HotkeyPrompt extends HTMLElement {
     newValue: string | null,
   ) {
     if (attr === 'img-src') {
-      this.icon.src = newValue;
+      if (newValue === null) {
+        this.icon.removeAttribute('src');
+      } else {
+        this.icon.setAttribute('src', newValue);
+      }
     }
   }
 
