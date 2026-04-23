@@ -47,3 +47,16 @@ assets in `/public` and hardcode the url.
 
 # Testing
 Vitest seems like a natural choice.
+
+# GardenJS adoption checklist
+
+Items blocking DDS adoption of Garden:
+
+- [x] Get decorators working in the example plugin
+- [ ] Properties as inputs
+- [ ] Decorators at example level
+- [ ] Allow multiple decorators in DAS file
+- [ ] Slots in DAS file
+- [ ] Events
+
+Till then, we are going without a component explorer.
