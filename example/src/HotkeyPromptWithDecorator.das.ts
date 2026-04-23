@@ -5,7 +5,7 @@ export default {
   name: 'HotkeyPromptLoginWithDecorator',
   file: './HotkeyPrompt/HotkeyPrompt.ts',
   description: 'Displays keybind icon and emits events when the key is pressed',
-  decorator: './SlotDecorator.ts',
+  decorator: './SlotDecorator.ts', // TODO any way to get multiple decorators?
 
   // TODO: DOM objects are not available in this context for some
   //  reason. But I'd like to do:
