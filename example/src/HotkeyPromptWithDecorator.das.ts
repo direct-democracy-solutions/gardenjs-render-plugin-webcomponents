@@ -1,8 +1,11 @@
+// TODO move this back into the HotkeyPrompt directory, once we can
+//  load decorators from other directories
+
 export default {
   name: 'HotkeyPromptLoginWithDecorator',
-  file: './HotkeyPrompt.ts',
+  file: './HotkeyPrompt/HotkeyPrompt.ts',
   description: 'Displays keybind icon and emits events when the key is pressed',
-  decorators: [ 'slot-decorator.ts' ],
+  decorator: './SlotDecorator.ts',
 
   // TODO: DOM objects are not available in this context for some
   //  reason. But I'd like to do:
@@ -12,6 +15,7 @@ export default {
   examples: [
     {
       title: 'Log In prompt',
+      // TODO inputs not being passed when the decorator exists
       input: {
         'img-src': '/enter-key.png',
         code: 'Enter',

@@ -17,7 +17,7 @@ export default function simpleWebComponentExample(
     readonly shadow: ShadowRoot;
     readonly element: HTMLElement;
 
-    eventLog: AppendLog;
+    eventLog: AppendLog | null = null;
 
     constructor() {
       super();
@@ -33,17 +33,22 @@ export default function simpleWebComponentExample(
     }
 
     watchEvent(eventName: string) {
-      if (this.eventLog === undefined) {
-        const p = document.createElement('p');
-        p.innerText = 'Event log from this component:';
-        this.shadow.appendChild(p);
-        this.eventLog = document.createElement('append-log') as AppendLog;
-        this.shadow.appendChild(this.eventLog);
+      if (this.eventLog === null) {
+        this.eventLog = this.initLog();
       }
       this.eventLog.appendMsg(`watching event ${eventName}`);
       this.element.addEventListener(eventName, () => {
-        this.eventLog.appendMsg(`got event ${eventName}`);
+        this.eventLog!.appendMsg(`got event ${eventName}`);
       });
+    }
+
+    private initLog() {
+      const p = document.createElement('p');
+      p.innerText = 'Event log from this component:';
+      this.shadow.appendChild(p);
+      this.eventLog = document.createElement('append-log') as AppendLog;
+      this.shadow.appendChild(this.eventLog);
+      return this.eventLog;
     }
   };
 }
