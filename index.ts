@@ -58,16 +58,6 @@ export function create() {
   };
 }
 
-function findDefaultSlot(element: HTMLElement) {
-  const slots = element.querySelectorAll('slot');
-  for (const slot of slots) {
-    if (slot.getAttribute('name') === null) {
-      return slot;
-    }
-  }
-  return null;
-}
-
 function getCustomElementRegistry() {
   try {
     return new CustomElementRegistry();
@@ -116,7 +106,6 @@ function ensureRegistered(
 function decorate(node: HTMLElement, decorators: CustomElementConstructor[]) {
   let decoratedNode = node;
   for (const decorator of decorators) {
-    console.log('appending a decorator');
     decoratedNode = initDecorator(decorator, decoratedNode);
   }
   return decoratedNode;
@@ -126,12 +115,7 @@ function initDecorator(decorator: CustomElementConstructor, slotContent: HTMLEle
   const customElements = getCustomElementRegistry();
   const tagName = ensureRegistered(customElements, decorator);
   const decNode = document.createElement(tagName);
-  // TODO default slot, or enforce just one slot and allow to have name?
-  const defaultSlot = findDefaultSlot(decNode);
-  if (defaultSlot === null) {
-    throw new Error(`Decorator ${tagName} has no default slot`);
-  }
-  defaultSlot.appendChild(slotContent);
+  decNode.appendChild(slotContent);
   return decNode;
 }
 

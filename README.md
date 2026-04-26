@@ -6,7 +6,7 @@ Plugin for rendering vanilla Web components in [Gardenjs](https://gardenjs.org/)
 
 ## Development Status
 
-For detailed information on each item, check out [dev-notes.md].
+For detailed information on each item, check out [dev-notes.md](./dev-notes.md).
 
 :white_check_mark: Mount standalone custom elements in GardenJS  
 :white_check_mark: Edit element attributes with GardenJS input controls  
@@ -18,8 +18,8 @@ For detailed information on each item, check out [dev-notes.md].
 :x: Listen to events from custom elements ([On the GardenJS roadmap](https://github.com/gardenjs/gardenjs/issues/32#issuecomment-4256064025); workaround available)  
 :x: Inject content into default slot from example ([workaround available](https://gardenjs.org/docs/get-started/examples))  
 :x: Inject content into named slot from example ([workaround available](https://gardenjs.org/docs/get-started/examples))  
-:x: CJS export
-:x: 0% test coverage
+:x: CJS export  
+:x: 0% test coverage  
 
 ## Getting Started
 
@@ -67,7 +67,7 @@ keydown event reaches the top of the document tree.
 
 To see the demo:
 ```
-npx garden
+npm test
 ```
 
 Be sure to include any new changes in the [CHANGELOG](CHANGELOG.md).
