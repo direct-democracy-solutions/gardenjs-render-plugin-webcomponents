@@ -1,6 +1,20 @@
 Design/implementation notes on the plugin and GardenJS in genera
 l
 
+# Decorators and Events
+We may have multiple decorators listening to the same event from the
+component under test. However, In that case, we have some options
+Do events bubble through the decorator even if handled? If so, we can
+just rely on native Web behavior (unless a decorator uses
+event.preventDefault, in which case the user gets to live with the
+consequences). In case they don't bubble through, we have two options:
+    - impose the requirement on each decorator to manually re-raise
+      events; or,
+    - do tricky shit in the renderer to sandbox them.
+
+Option 1 results in Uncaught DOMException: An attempt was made to use an
+object that is not, or is no longer, usable.
+
 # Slots
 The official workaround for slots is to write a wrapper component that
 constructs the component under tests and then injects the slot content.

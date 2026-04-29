@@ -42,8 +42,11 @@ export default function simpleWebComponentExample(
         this.eventLog = this.initLog();
       }
       this.eventLog.appendMsg(`watching event ${eventName}`);
-      this.element.addEventListener(eventName, () => {
+      this.element.addEventListener(eventName, (e) => {
         this.eventLog!.appendMsg(`got event ${eventName}`);
+        // TODO the event doesn't bubble on its own, but this solution
+        //  gives an error for reusing the event.
+        this.dispatchEvent(e);
       });
     }
 

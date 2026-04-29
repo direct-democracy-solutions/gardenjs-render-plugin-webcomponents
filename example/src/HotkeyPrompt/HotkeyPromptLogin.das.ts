@@ -5,7 +5,7 @@ export default {
   file: './HotkeyPrompt.loginexample.ts',
 
   description: 'Displays keybind icon and emits events when the key is pressed',
-  // decorators: [ './watch-hotkey-decorator.ts' ], // TODO not working
+  decorators: [ '../EventLogDecorator.ts' ],
   examples: [
     {
       title: 'Log In prompt',
