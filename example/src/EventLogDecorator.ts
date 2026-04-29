@@ -1,18 +1,19 @@
-import AppendLog from './appendLog';
-customElements.define('append-log', AppendLog);
+import AppendLog from './append-log';
 
 const template = document.createElement('template');
 template.innerHTML = '<slot id="decoratee-slot"></slot>';
 
 // TODO not working -- how to load properly?
-export default function watchHotkeyDecorator() {
+export default class EventLogDecorator extends HTMLElement {
   eventLog: AppendLog;
+  private shadow: ShadowRoot;
+  private slotElement: HTMLSlotElement;
 
   constructor() {
     super();
     this.shadow = this.attachShadow({ mode: 'closed' });
-    this.shadow.appendChild(elementTemplate.content.cloneNode(true));
-    this.slot = this.shadow.getElementById('decoratee-slot');
+    this.shadow.appendChild(template.content.cloneNode(true));
+    this.slotElement = this.shadow.getElementById('decoratee-slot') as HTMLSlotElement;
   }
 
   connectedCallback() {

@@ -15,3 +15,5 @@ export default class AppendLog extends HTMLElement {
     this.ul.appendChild(li);
   }
 }
+
+customElements.define('append-log', AppendLog);

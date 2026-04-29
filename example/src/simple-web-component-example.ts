@@ -1,5 +1,10 @@
 import AppendLog from './append-log';
-customElements.define('append-log', AppendLog);
+
+let appendLogTagName = customElements.getName(AppendLog);
+if (appendLogTagName === null) {
+  customElements.define('append-log', AppendLog);
+  appendLogTagName = 'append-log';
+}
 
 export default function simpleWebComponentExample(
   component: CustomElementConstructor,
@@ -42,7 +47,7 @@ export default function simpleWebComponentExample(
       });
     }
 
-    private initLog() {
+    initLog() {
       const p = document.createElement('p');
       p.innerText = 'Event log from this component:';
       this.shadow.appendChild(p);

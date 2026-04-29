@@ -3,9 +3,9 @@
 
 export default {
   name: 'HotkeyPromptLoginWithDecorator',
-  file: './HotkeyPrompt/HotkeyPrompt.ts',
+  file: './HotkeyPrompt.ts',
   description: 'Displays keybind icon and emits events when the key is pressed',
-  decorator: 'SlotDecorator.ts', // TODO any way to get multiple decorators?
+  decorators: ['../SlotDecorator.ts'],
 
   // TODO: DOM objects are not available in this context for some
   //  reason. But I'd like to do:
@@ -15,7 +15,6 @@ export default {
   examples: [
     {
       title: 'Log In prompt',
-      // TODO inputs not being passed when the decorator exists
       input: {
         'img-src': '/enter-key.png',
         code: 'Enter',
